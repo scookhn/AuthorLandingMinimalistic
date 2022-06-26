@@ -1,0 +1,415 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap');
+
+:root {
+    --primaryBlue: #112B3C;
+    --secondaryBlue: #205375;
+    --dark: #000000;
+    --orange: #F66B0E;
+    --bgGrey: #EFEFEF;
+}
+
+* {
+    background-color: var(--bgGrey);
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    margin: 5px;
+    background-color: var(--bgGrey);
+    border-style: none;
+    border-color: var(--orange);
+}
+
+li {
+    list-style: none;
+}
+
+header a {
+    color: var(--dark);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* Barra del Menu */
+.navbar {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 5px;
+}
+
+.navmenu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+}
+
+.navlink {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--dark);
+    position: relative;
+}
+
+.navlink:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--dark);
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+.navlink:hover:before {
+    visibility: visible;
+    width: 100%;
+}
+
+.hamburguer {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: var(--primaryBlue);
+} 
+
+/* CSS for Mobile */
+@media(max-width: 768px) {
+    .hamburguer {
+        display: block;
+    }
+
+    .hamburguer.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburguer.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburguer.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .navmenu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        gap: 0;
+        flex-direction: column;
+        background-color: var(--bgGrey);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+    }
+
+    .navitem {
+        margin: 16px 0;
+    }
+
+    .navmenu.active {
+        left: 0;
+    }
+
+    /* Signature section for mobile */
+    /* .firma {
+        filter: brightness(1.1);
+        mix-blend-mode: multiply;
+        position: relative;
+        margin: 10px auto;
+        width: 25%;
+
+    } */
+}
+
+/* Nombre del autor */
+.titulo {
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 5px;
+    background-color: var(--bgGrey);
+    text-shadow: 2px 2px 8px;
+}
+
+.titulo span {
+    margin-top: 25px;
+    font-size: 4.5rem;
+    text-decoration: double;
+}
+
+@media(max-width: 768px) {
+    .titulo {
+        margin-top: 175px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
+
+    .titulo span {
+        font-size: 2.5rem;
+        text-decoration: double;
+
+    }
+}
+
+
+/* Socialmedia Buttons */
+.socialmedia {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+
+}
+
+.fa-facebook {
+    color: var(--dark);
+}
+
+.fa-facebook:hover {
+    color: var(--orange);
+    opacity: 0.5;
+}
+
+.fa-twitter {
+    color: var(--dark);
+    opacity: 0.5;
+}
+
+.fa-twitter:hover {
+    color: var(--orange);
+    opacity: 0.5;
+}
+
+.fa-instagram-square {
+    color: var(--dark);
+}
+
+.fa-instagram-square:hover {
+    color: var(--orange);
+}
+
+/* Para imagen transparten con cuadros grises */
+/* .firma {
+    filter: brightness(1.1);
+    mix-blend-mode: multiply;
+} */
+
+/* Contenedor de Libro y Boton */
+.bookscontainer {
+    /* position: relative; */
+    /* display: flex; */
+    margin-top: 10%;
+    width: 100%;
+    height: 800px;
+    display: flex;
+    justify-content: center;
+    /* justify-content:space-between; */
+    /* overflow: auto; */
+}
+
+.bookcoverdiv {
+    height: 700px;
+    width: 32%;
+    /* float: left; */
+}
+
+.bookcover {
+    height: 700px;
+}
+
+.booksell {
+    text-align: center;
+    width: 200px;
+    height: 45px;
+    margin-top: 600px;
+    font-size: larger;
+    font-weight: bold;
+    /* float: right; */
+}
+
+.amazondiv {
+    margin-top: 5px;
+}
+
+.amazonbutton {
+    background-color: var(--bgGrey);
+    text-align: center;
+    font-size: 30px;
+    margin: 5px;
+    width: 195px;
+    padding: 3px;
+    display: inline-block;
+}
+
+.amazonbutton:after {
+    content: '»';
+    color: var(--orange);
+    top: 10px;
+    right: -4px;
+    transition: 0.5s;
+    opacity: 0;
+    position: inherit;
+}
+
+.amazonbutton:hover {
+    color: var(--orange);
+    cursor: pointer;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.amazonbutton:hover:after {
+    opacity: 1;
+    right: 10px;
+}
+
+@media(max-width: 768px) {
+    .bookscontainer {
+        margin-top: 10%;
+        width: 100%;
+        height: 680px;
+        display: block;
+
+    }
+    
+    .bookcoverdiv {
+        display: block;
+        margin: auto;
+        width: 60%;
+        height: 480px;
+
+    }
+    
+    .bookcover {
+        width: 300px;
+        height: auto;
+    }
+
+    
+    .booksell {
+        display: block;
+        padding-top: 25px;
+        margin: auto;
+
+    }    
+}
+
+/* Forma de Contacto */
+h2::selection,
+label::selection,
+button::selection {
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.wrapper {
+    margin: 45px auto;
+    width: 55%;
+    padding: 2rem;
+    background: var(--bgGrey);
+    box-shadow: 0 0px 2.2px rgba(0, 0, 0, 0.028), 0 0px 5.3px rgba(0, 0, 0, 0.04),
+        0 0px 10px rgba(0, 0, 0, 0.05), 0 0px 17.9px rgba(0, 0, 0, 0.06),
+        0 0px 33.4px rgba(0, 0, 0, 0.072), 0 0px 80px rgba(0, 0, 0, 0.1);
+}
+
+
+
+h2 {
+    /* background: rgba(12, 12, 12, 0.7); */
+    letter-spacing: 0.1rem;
+    padding: 0.5rem;
+    cursor: default;
+}
+
+form,
+input,
+textarea,
+button {
+    font-family: inherit;
+    font-size: initial;
+}
+
+.form-group label {
+    display: block;
+    margin: 2rem 0 0.5rem 0;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 1rem 0.8rem;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    outline: 0;
+    transition: border 0.15s;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"] {
+    height: 4.6rem;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.submit {
+    font-weight: bold;
+    margin-top: 1rem;
+    padding: 1rem 1.5rem;
+    border: solid 1px;
+    background: rgba(239, 239, 239, 0.7);
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+i {
+    margin-right: 0.5rem;
+}
+
+.submit:hover {
+    color: var(--orange);
+}
+
+.fa-paper-plane {
+    background: rgba(239, 239, 239, 0.7);
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+    border: 1px solid #222;
+}
+
+@media(max-width: 768px){
+    .wrapper{
+        display: block;
+        position: relative;
+        margin-top: 15px;
+    }
+    .submit {
+        margin-left: 3rem;
+    }
+}
